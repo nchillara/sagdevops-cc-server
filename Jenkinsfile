@@ -89,7 +89,7 @@ pipeline {
     }
     environment {
         CC_INSTALLER_URL = "http://aquarius-bg.eur.ad.sag/cc/installers" // internal download site
-        CC_INSTALLER = 'cc-def-10.2-milestone-${platform}' // version to test
+        // CC_INSTALLER = 'cc-def-10.2-milestone-${platform}' // version to test
         // ADMIN = credentials('cc-staging') // custom password
         CC_PASSWORD = 'manage'
         
