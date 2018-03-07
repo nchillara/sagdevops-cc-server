@@ -307,7 +307,7 @@ IMPORTANT: To ensure your entire customized setup runs cleanly perform end-to-en
 Adjust 'up' target in [build.xml](build.xml) with the targets that are applicable to your setup and run:
 
 ```bash
-sagccant uninstall boot -Dbootstrap=YOUR_BOOT_NAME 
+sagccant uninstall boot -Dbootstrap=YOUR_BOOT_NAME
 sagccant up test -Denv=YOUR_ENV_NAME
 ```
 
@@ -343,6 +343,7 @@ To uninstall Command Central run:
 ```bash
 sagccant uninstall -Dbootstrap=YOUR_BOOT_NAME
 ```
+
 > NOTE: `uninstall` target is currently not supported on Windows
 
 _____________
