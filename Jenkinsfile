@@ -69,10 +69,8 @@ def test(propfile) {
             node(label) {
                 unstash 'scripts'
                 sagccantw '-Daccept.license=true boot'
-                sagccantw 'tuneup credentials masters licenses test'
+                sagccantw 'up test'
                 junit 'build/tests/**/TEST-*.xml'
-                sagccantw "images installers mirrors" 
-                sagccantw "mirrors"
             }
         }                        
     }
