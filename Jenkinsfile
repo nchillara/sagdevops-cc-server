@@ -19,7 +19,7 @@ def ant (command) {
 
 def sagccantw (command) {
     if (isUnix()) {
-        sh "./sagccantw $command"
+        sh "antcc/sagccantw $command"
     } else {
         // TODO: implement sagccantw for Windows
         bat "ant $command"
