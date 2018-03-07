@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <project xmlns="antlib:org.apache.tools.ant" basedir="." default="up">
 	<import file="antcc/main.xml" />
-	<target name="up" depends="library,layers,tuneup,credentials,masters,licenses,installers,mirrors" description="Setup everything" />
+	<target name="up" depends="library,layers,tuneup,credentials,masters,licenses,installers" description="Setup everything" />
 </project>
