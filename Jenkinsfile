@@ -1,36 +1,15 @@
 #!/usr/bin/env groovy
 
-// TODO: FINISH AND TEST ME !!!
-
 // https://jenkins.io/doc/book/pipeline/shared-libraries/
 // TODO: move to a Jenkins CC library
 
-// export JENKINS_URL=http://ccbvtauto.eur.ad.sag:8080
-// curl -X POST -F "jenkinsfile=<Jenkinsfile" $JENKINS_URL/pipeline-model-converter/validate
-
+// curl -X POST -F "jenkinsfile=<Jenkinsfile" http://ccbvtauto.eur.ad.sag:8080/pipeline-model-converter/validate
 
 def ant (command) {
     if (isUnix()) {
         sh "ant $command"
     } else {
         bat "ant $command"
-    }
-}
-
-def sagccantw (command) {
-    if (isUnix()) {
-        sh "antcc/sagccantw $command"
-    } else {
-        // TODO: implement sagccantw for Windows
-        bat "ant $command"
-    }
-}
-
-def gradlew (command) {
-    if (isUnix()) {
-        sh "./gradlew $command"
-    } else {
-        bat "gradlew $command"
     }
 }
 
@@ -68,8 +47,8 @@ def test(propfile) {
         builders[label] = {
             node(label) {
                 unstash 'scripts'
-                sagccantw '-Daccept.license=true boot'
-                sagccantw 'up test'
+                ant '-Daccept.license=true boot'
+                ant 'up test'
                 junit 'build/tests/**/TEST-*.xml'
             }
         }                        
@@ -86,11 +65,10 @@ pipeline {
         disableConcurrentBuilds()
     }
     environment {
+        SAG_AQUARIUS = 'aquarius-bg.eur.ad.sag'
         CC_INSTALLER_URL = "http://aquarius-bg.eur.ad.sag/cc/installers" // internal download site
-        // CC_INSTALLER = 'cc-def-10.2-milestone-${platform}' // version to test
-        // ADMIN = credentials('cc-staging') // custom password
+        CC_INSTALLER = 'cc-def-10.2-fix1-${platform}' // version to test
         CC_PASSWORD = 'manage'
-        
         CC_ENV = 'staging'     // your custom env config        
         CC_ENV_FILE = "environments/staging/env.properties"
         EMPOWER = credentials('empower')
