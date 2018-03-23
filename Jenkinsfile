@@ -67,8 +67,9 @@ pipeline {
     environment {
         SAG_AQUARIUS = 'aquarius-bg.eur.ad.sag'
         CC_INSTALLER_URL = "http://aquarius-bg.eur.ad.sag/cc/installers" // internal download site
-        CC_INSTALLER = 'cc-def-10.2-fix1-${platform}' // version to test
+        // CC_INSTALLER = 'cc-def-10.2-fix1-${platform}' // version to test
         CC_PASSWORD = 'manage'
+        CC_BOOT = 'staging'
         CC_ENV = 'staging'     // your custom env config        
         CC_ENV_FILE = "environments/staging/env.properties"
         EMPOWER = credentials('empower')
