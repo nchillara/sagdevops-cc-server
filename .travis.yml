@@ -7,9 +7,8 @@ env:
     - CC_ENV=travis-ci
   matrix:
     - CC_BOOT=default
-    - CC_BOOT=10.1
 script:
   - ant boot -Daccept.license=true
-  - ~/sag/cc/CommandCentral/client/bin/sagccant credentials masters test installers clean
+  - ~/sag/cc/CommandCentral/client/bin/sagccant up
   - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2
-  - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2 -Drelease=9.12
+#  - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2 -Drelease=9.12
