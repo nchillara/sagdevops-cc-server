@@ -2,16 +2,15 @@ version: "3.2"
 
 services:
   cc:
-    image: softwareag/commandcentral:10.2-server
+    image: store/softwareag/commandcentral:10.2-server
     ports:
-      - "8090:8090"
       - "8091:8091"
       - "8092:8092" # for master mirror     
     environment:
       - CC_PASSWORD
       
   dev1:   # this is main test node
-    image: softwareag/commandcentral:10.2-node
+    image: store/softwareag/commandcentral:10.2-node
     ports: # export all known ports for easy testing, but dont statically bind them to allow CI
       - target: 5555 # IS
         #published: 5555
@@ -21,14 +20,16 @@ services:
         #published: 8585       
       #- "8080:8080" # ?
       - target: 8072 # Applatform
-        #published: 8072       
-    environment:
-      - CC_AUTO_REGISTER=0
+        #published: 8072    
+    hostname: dev1   
+    # environment:
+    #   - CC_AUTO_REGISTER=0
 
   dev2: # this is supporting node
-    image: softwareag/commandcentral:10.2-node
-    environment:
-      - CC_AUTO_REGISTER=0
+    image: store/softwareag/commandcentral:10.1-node
+    hostname: dev2
+    # environment:
+    #   - CC_AUTO_REGISTER=0
 
   devoracle:
     image: daerepository03.eur.ad.sag:4443/ccdevops/oracle:11
@@ -39,7 +40,7 @@ services:
       - ORACLE_ALLOW_REMOTE=true
 
   init:
-    image: softwareag/commandcentral:10.2-server
+    image: store/softwareag/commandcentral:10.2-server
     volumes: 
       - ./:/src 
       - ./clients/docker.properties:/root/.sag/cc.properties
@@ -54,7 +55,7 @@ services:
       - cc
 
   initdev:
-    image: softwareag/commandcentral:10.2-server
+    image: store/softwareag/commandcentral:10.2-server
     volumes: 
       - ./:/src 
       - ./clients/docker.properties:/root/.sag/cc.properties
