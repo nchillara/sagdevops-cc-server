@@ -17,5 +17,6 @@ script:
   - ant boot -Daccept.license=true
   - ~/sag/cc/CommandCentral/client/bin/sagccant up
   - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2
+  - ~/sag/cc/CommandCentral/client/bin/sagccant stopcc
   - docker-compose run --rm init
  
