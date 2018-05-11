@@ -1,14 +1,21 @@
+sudo: required
 language: java
 jdk:
   - oraclejdk8
-
+services:
+  - docker
 env:
   global:
     - CC_ENV=travis-ci
   matrix:
     - CC_BOOT=default
+
+before_install:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+
 script:
   - ant boot -Daccept.license=true
   - ~/sag/cc/CommandCentral/client/bin/sagccant up
   - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2
-#  - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2 -Drelease=9.12
+  - docker-compose run --rm init
+ 

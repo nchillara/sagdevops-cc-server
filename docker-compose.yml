@@ -1,0 +1,23 @@
+version: '3.2'
+services:
+  cc:
+    image: store/softwareag/commandcentral:10.2-server
+    ports:
+      - 8091:8091
+      - 8092:8092
+    environment:
+      - CC_PASSWORD
+  init:
+    image: store/softwareag/commandcentral:10.2-server
+    volumes:
+      - ./:/src
+      - ./clients/docker.properties:/root/.sag/cc.properties
+    environment:
+      - CC_SERVER=cc
+      - CC_ENV
+      - CC_PASSWORD
+      - EMPOWER_USR
+      - EMPOWER_PSW
+    command: ant waitcc library layers tuneup credentials masters licenses test
+    depends_on:
+      - cc
