@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/SoftwareAG/sagdevops-cc-server.svg?branch=master)](https://travis-ci.org/SoftwareAG/sagdevops-cc-server/builds)
 
-# Command Central 10.1 server setup
+# Command Central server setup
 
-This project automates Command Central 10.1 setup:
+This project automates Command Central setup:
 
 * Downloads latest fix level bootstrap installer for your platform
 * Runs bootstrap installer
@@ -16,7 +16,7 @@ You can also use this project to maintain your Command Central installation:
 
 * Pull the latest fixes and products into mirror repositories
 * Update Command Central to the latest patch level
-* Upgrade Command Central to a new release (from 9.x to 10.1)
+* Upgrade Command Central to a new release (from 9.x)
 * Start/stop/restart Command Central
 * Check jobs status and tail the logs
 
@@ -43,17 +43,17 @@ just the client that comes with Java and Ant distribution
 For Linux:
 
 ```bash
-curl -O http://empowersdc.softwareag.com/ccinstallers/cc-def-10.1-fix1-lnxamd64.sh
-chmod +x cc-def-10.1-fix1-lnxamd64.sh
-./cc-def-10.1-fix1-lnxamd64.sh -D CLI -d ~/.sag/cli
+curl -O http://empowersdc.softwareag.com/ccinstallers/cc-def-10.2-fix1-lnxamd64.sh
+chmod +x cc-def-10.2-fix1-lnxamd64.sh
+./cc-def-10.2-fix1-lnxamd64.sh -D CLI -d ~/.sag/cli
 source ~/.bashrc
 ```
 
 For Windows:
 
-* Download [http://empowersdc.softwareag.com/ccinstallers/cc-def-10.1-fix1-w64.zip]
-* Unzip cc-def-10.1-fix1-w64.zip
-* Run (As Administrator) cc-def-10.1-release-w64 -D CLI -d %HOME%\.sag\cli
+* Download [http://empowersdc.softwareag.com/ccinstallers/cc-def-10.2-fix1-w64.zip]
+* Unzip cc-def-10.2-fix1-w64.zip
+* Run (As Administrator) cc-def-10.2-release-w64 -D CLI -d %HOME%\.sag\cli
 
 Verify by running in a new shell window:
 
@@ -75,7 +75,7 @@ java -version # MUST be 1.8+
 ant -version  # MUST be 1.9+
 ```
 
-Bootstrap the latest version of Command Central 9.12:
+Bootstrap the latest version of Command Central:
 
 ```bash
 ant boot -Daccept.license=true
@@ -212,7 +212,7 @@ environments/YOUR_ENV_NAME/env.properties by setting this property:
 licenses.zip.url=http://url/to/licenses.zip
 ```
 
-IMPORTANT: the structure of the licenses.zip is not important. Command Central 10.1 will introspect
+IMPORTANT: the structure of the licenses.zip is not important. Command Central will introspect
 the archive and import found licences with auto generated aliases.
 
 Run this command to import license files:
