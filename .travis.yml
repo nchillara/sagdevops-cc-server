@@ -17,6 +17,6 @@ script:
   - docker-compose run --rm init
   - docker-compose down
   - ant boot -Daccept.license=true
-  - ~/sag/cc/CommandCentral/client/bin/sagccant up
+  - sudo su - ~/sag/cc/CommandCentral/client/bin/sagccant up
   - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2
   - ~/sag/cc/CommandCentral/client/bin/sagccant stopcc
