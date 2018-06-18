@@ -18,6 +18,6 @@ services:
       - CC_PASSWORD
       - EMPOWER_USR
       - EMPOWER_PSW
-    command: ant waitcc library layers tuneup credentials masters licenses test
+    command: ant waitcc library layers tuneup credentials masters licenses test clean-file
     depends_on:
       - cc
