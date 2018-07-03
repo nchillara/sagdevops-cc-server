@@ -21,7 +21,7 @@ env:
     - CC_BOOT=default
 
 before_install:
-  - antc/bootstrap/install.sh
+  - antcc/bootstrap/install.sh
   - export CC_CLI_HOME="$HOME/.sag/tools/CommandCentral/client"
   - export ANT_HOME="$HOME/.sag/tools/common/lib/ant"
   - export ANTCC_HOME=`pwd`/antcc
