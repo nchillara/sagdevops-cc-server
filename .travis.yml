@@ -1,9 +1,7 @@
 #sudo: required
-language: java
-jdk:
-  - oraclejdk8
-# services:
-#   - docker
+# language: java
+# jdk:
+#   - oraclejdk8
 
 git:
   depth: 100
@@ -13,27 +11,26 @@ matrix:
     - os: linux
       dist: trusty
     - os: osx
-    # - os: linux
-    #   sudo: required
   fast_finish: true
 
 env:
   global:
     - CC_ENV=travis-ci
+
   matrix:
     - CC_BOOT=default
 
-# before_install:
-#   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+before_install:
+  - antc/bootstrap/install.sh
+  - export CC_CLI_HOME="$HOME/.sag/tools/CommandCentral/client"
+  - export ANT_HOME="$HOME/.sag/tools/common/lib/ant"
+  - export ANTCC_HOME=`pwd`/antcc
+  - export PATH=$PATH:$ANTCC_HOME/bin:$ANT_HOME/bin
 
 script:
-  # - docker-compose run --rm init
-  # - docker-compose down
-  - ant boot -Daccept.license=true
-  - ~/sag/cc/CommandCentral/client/bin/sagccant up
-  - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2
-  - ~/sag/cc/CommandCentral/client/bin/sagccant stopcc
-
+  - antcc boot -Daccept.license=true
+  - antcc up
+  - antcc mirrors mirrors2
 
 cache:
   directories:
