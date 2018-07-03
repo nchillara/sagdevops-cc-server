@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/SoftwareAG/sagdevops-cc-server.svg?branch=master)](https://travis-ci.org/SoftwareAG/sagdevops-cc-server/builds)
+[![Linux](https://travis-ci.org/SoftwareAG/sagdevops-cc-server.svg?branch=release%2F102apr2018)](https://travis-ci.org/SoftwareAG/sagdevops-cc-server/builds)
+[![Windows](https://ci.appveyor.com/api/projects/status/s8rcroq87awof16f/branch/release/102apr2018?svg=true)](https://ci.appveyor.com/project/sergeipogrebnyak/sagdevops-cc-server/branch/release/102apr2018)
 
 # Command Central server setup
 
@@ -43,16 +44,16 @@ just the client that comes with Java and Ant distribution
 For Linux:
 
 ```bash
-curl -O http://empowersdc.softwareag.com/ccinstallers/cc-def-10.2-fix1-lnxamd64.sh
-chmod +x cc-def-10.2-fix1-lnxamd64.sh
-./cc-def-10.2-fix1-lnxamd64.sh -D CLI -d ~/.sag/cli
+curl -O http://empowersdc.softwareag.com/ccinstallers/cc-def-10.2-fix2-lnxamd64.sh
+chmod +x cc-def-10.2-fix2-lnxamd64.sh
+./cc-def-10.2-fix2-lnxamd64.sh -D CLI -d ~/.sag/cli
 source ~/.bashrc
 ```
 
 For Windows:
 
-* Download [http://empowersdc.softwareag.com/ccinstallers/cc-def-10.2-fix1-w64.zip]
-* Unzip cc-def-10.2-fix1-w64.zip
+* Download [http://empowersdc.softwareag.com/ccinstallers/cc-def-10.2-fix2-w64.zip]
+* Unzip cc-def-10.2-fix2-w64.zip
 * Run (As Administrator) cc-def-10.2-release-w64 -D CLI -d %HOME%\.sag\cli
 
 Verify by running in a new shell window:
