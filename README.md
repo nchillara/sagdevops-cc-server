@@ -1,6 +1,3 @@
-[![Linux](https://travis-ci.org/SoftwareAG/sagdevops-cc-server.svg?branch=release%2F102apr2018)](https://travis-ci.org/SoftwareAG/sagdevops-cc-server/builds)
-[![Windows](https://ci.appveyor.com/api/projects/status/s8rcroq87awof16f/branch/release/102apr2018?svg=true)](https://ci.appveyor.com/project/sergeipogrebnyak/sagdevops-cc-server/branch/release/102apr2018)
-
 # Command Central server setup
 
 This project automates Command Central setup:
@@ -12,6 +9,7 @@ This project automates Command Central setup:
 * Uploads license keys
 * Uploads product and fix images
 * Creates mirror repositories
+* Imports default templates library
 
 You can also use this project to maintain your Command Central installation:
 
@@ -20,6 +18,13 @@ You can also use this project to maintain your Command Central installation:
 * Upgrade Command Central to a new release (from 9.x)
 * Start/stop/restart Command Central
 * Check jobs status and tail the logs
+* Apply default and custom templates
+
+## Build and Test status of default branches
+
+| AppVeyor (Windows)       | Travis CI (Linux / macOS) |
+|--------------------------|--------------------------|
+| [![Build status](https://ci.appveyor.com/api/projects/status/s8rcroq87awof16f/branch/release/102apr2018?svg=true)](https://ci.appveyor.com/project/sergeipogrebnyak/sagdevops-cc-server/branch/release/102apr2018) | [![Build Status](https://travis-ci.org/SoftwareAG/sagdevops-cc-server.svg?branch=release%2F102apr2018)](https://travis-ci.org/SoftwareAG/sagdevops-cc-server) |
 
 ## Requirements
 

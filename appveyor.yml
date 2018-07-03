@@ -12,7 +12,7 @@ build_script:
 - cmd: >-
     ant boot -Daccept.license=true
 
-    ant up -Denv=tutorial
+    ant up mirrors -Denv=appveyor
 test_script:
 - cmd: ant test
 deploy: off

@@ -4,6 +4,19 @@ jdk:
   - oraclejdk8
 # services:
 #   - docker
+
+git:
+  depth: 100
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+    - os: osx
+    # - os: linux
+    #   sudo: required
+  fast_finish: true
+
 env:
   global:
     - CC_ENV=travis-ci
@@ -20,3 +33,8 @@ script:
   - ~/sag/cc/CommandCentral/client/bin/sagccant up
   - ~/sag/cc/CommandCentral/client/bin/sagccant mirrors mirrors2
   - ~/sag/cc/CommandCentral/client/bin/sagccant stopcc
+
+
+cache:
+  directories:
+    - $HOME/Downloads
