@@ -28,9 +28,9 @@ env:
 #   - export PATH=$PATH:$ANTCC_HOME/bin:$ANT_HOME/bin
 
 script:
-  - antcc boot -Daccept.license=true
-  - antcc up
-  - antcc mirrors
+  - ant boot -Daccept.license=true
+  - ant up
+  - ant mirrors
 
 cache:
   directories:
