@@ -10,8 +10,6 @@ matrix:
   include:
     - os: linux
       dist: trusty
-    - os: osx
-  fast_finish: true
 
 env:
   global:
@@ -20,17 +18,9 @@ env:
   matrix:
     - CC_BOOT=default
 
-# before_install:
-#   - antcc/bootstrap/install.sh
-#   - export CC_CLI_HOME="$HOME/.sag/tools/CommandCentral/client"
-#   - export ANT_HOME="$HOME/.sag/tools/common/lib/ant"
-#   - export ANTCC_HOME=`pwd`/antcc
-#   - export PATH=$PATH:$ANTCC_HOME/bin:$ANT_HOME/bin
-
 script:
   - ant boot -Daccept.license=true
   - ant up
-  - ant mirrors
 
 cache:
   directories:
